@@ -1,0 +1,11 @@
+<h2>Welcome to Vendors Home Page!</h2>
+
+<form action="{% url 'jizhang:VendorDetails' %}" method="get">
+    Vendor ID: <input type="text" name="vend_id">
+	<input type="submit" value="search">
+</form>
+
+<form action="{% url 'jizhang:VendorDetails' %}" method="get">
+	Vendor Name: <input type="text" name="vend_name">
+	<input type="submit" value="search">
+</form>

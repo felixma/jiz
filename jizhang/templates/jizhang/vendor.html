@@ -1,0 +1,26 @@
+{% if vend %}
+	Number of vendors: {{ vend|length}}
+{% endif %}
+<table border="1"> 
+    <tr>
+        <th>Vendor ID</th>
+        <th>Name</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Zip Code</th>
+    </tr>
+    {% for v in vend %}
+    <tr>
+        <td>{{ v.vend_id }}</td>
+        <td>{{ v.vend_name }}</td>
+	<td>{{ v.vend_state }}</td>
+	<td>{{ v.vend_city }}</td>
+	<td>{{ v.vend_address }}</td>
+	<td>{{ v.vend_zip }}</td>
+    {% empty %}
+        <td> Sorry</td>
+    </tr>
+    {% endfor %}
+
+</table>

@@ -1,0 +1,29 @@
+{% if prod %}
+	Number of products: {{ prod|length}}
+{% endif %}
+<table border="1"> 
+    <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Vendor ID</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    {% for p in prod %}
+    <tr>
+        <td>{{ p.prod_id }}</td>
+        <td>{{ p.prod_name }}</td>
+	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.vend_id.vend_id }}>{{ p.vend_id.vend_id }}</a></td>
+        <td>{{ p.prod_price }}</td>
+        <td>{{ p.prod_desc }}</td>
+    {% empty %}
+        <td> Sorry</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href={% url 'jizhang:ProductsHome' %}>Products Home</a>
+<br>
+<a href={% url 'jizhang:home' %}>Jiz Home</a>
