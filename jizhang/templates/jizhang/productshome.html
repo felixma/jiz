@@ -1,16 +1,16 @@
 <h2>Welcome to Products Home Page!</h2>
 
-<form action="{% url 'jizhang:ProductDetails' %}" method="post">
+<form action="{% url 'jizhang:ProductDetails' %}" method="get">
     Product ID: <input type="text" name="prod_id">
     <input type="submit" value="search">
 </form>
 
-<form action="{% url 'jizhang:ProductDetails' %}" method="post">
+<form action="{% url 'jizhang:ProductDetails' %}" method="get">
     Product Name: <input type="text" name="prod_name">
     <input type="submit" value="search">
 </form>
 
-<form action="{% url 'jizhang:ProductDetails' %}" method="post">
-    Vender Name: <input type="text" name="vend_name">
+<form action="{% url 'jizhang:ProductDetails' %}" method="get">
+    Vendor Name: <input type="text" name="vend_name">
     <input type="submit" value="search">
 </form>

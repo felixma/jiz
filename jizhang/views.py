@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import Http404
 
 
-from jizhang.models import Orders, Customers, Products
+from jizhang.models import Orders, Customers, Products, Vendors, Orderitems, Productnotes
 
 
 def home(request):
@@ -45,7 +45,31 @@ def ProductsHome(request):
     return render(request, 'jizhang/productshome.html')
 
 def ProductDetails(request):
-    return HttpResponse("You are viewing Product %s's information." % prod_id)
+    key1 = request.GET.get('prod_id', None)
+    key2 = request.GET.get('prod_name', None)
+    key3 = request.GET.get('vend_name', None)
+    if key1 is not None:
+        prod = get_list_or_404(Products, pk = key1)
+    elif key2 is not None:
+	prod = get_list_or_404(Products, prod_name__regex = key2)
+    elif key3 is not None:
+	vend = get_list_or_404(Vendors, vend_name__regex = key3)
+	prod = []
+	for v in vend:
+	    prod.extend(Vendors.objects.get(vend_id = v.vend_id).products_set.all())
+	#prod = get_list_or_404(Products, vend_id = vend[0].vend_id)
+    prod_dict = {}
+    for p in prod:
+	total_out = 0
+	for order in Products.objects.get(pk = p.prod_id).orderitems_set.all(): 
+	#for order in p.Orderitems_set.all(): 
+	    total_out = total_out + order.quantity
+	inventory = p.prod_total_amount - total_out
+	prod_dict[p] = inventory
+    return render(request, "jizhang/product.html", {'prod': prod_dict})
+
+
+    #return HttpResponse("You are viewing Product %s's information." % prod_id)
 
 def OrdersHome(request):
     return render(request, 'jizhang/ordershome.html')
@@ -53,6 +77,14 @@ def OrdersHome(request):
 def OrderDetails(request, order_id):
     return HttpResponse("You are viewing Order %s's information." % order_id)
 
+def VendorsHome(request):
+    return render(request, 'jizhang/vendorshome.html')
 
-
-
+def VendorDetails(request):
+    key1 = request.GET.get('vend_id', None)
+    key2 = request.GET.get('vend_name', None)
+    if key1 is not None:
+        vend = get_list_or_404(Vendors, pk = key1)
+    elif key2 is not None:
+	vend = get_list_or_404(Vendors, vend_name__regex = key2)
+    return render(request, "jizhang/vendor.html", {'vend': vend})

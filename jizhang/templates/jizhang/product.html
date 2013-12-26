@@ -6,15 +6,19 @@
         <th>Product ID</th>
         <th>Name</th>
         <th>Vendor ID</th>
-        <th>Price</th>
+        <th>Price In</th>
+        <th>Price Out</th>
+        <th>Inventory</th>
         <th>Description</th>
     </tr>
-    {% for p in prod %}
+    {% for p in prod.keys %}
     <tr>
         <td>{{ p.prod_id }}</td>
         <td>{{ p.prod_name }}</td>
 	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.vend_id.vend_id }}>{{ p.vend_id.vend_id }}</a></td>
-        <td>{{ p.prod_price }}</td>
+        <td>{{ p.prod_price_in }}</td>
+        <td>{{ p.prod_price_out }}</td>
+        <td>{{ prod.p }}</td>
         <td>{{ p.prod_desc }}</td>
     {% empty %}
         <td> Sorry</td>

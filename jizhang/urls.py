@@ -22,5 +22,8 @@ urlpatterns = patterns('',
 
         url(r'^orders/?$', views.OrdersHome, name = 'OrdersHome'),
         url(r'^order/?$', views.OrderDetails, name = 'OrderDetails'),
+        
+	url(r'^vendors/?$', views.VendorsHome, name = 'VendorsHome'),
+	url(r'^vendor/?$', views.VendorDetails, name = 'VendorDetails'),
 		       )
 
