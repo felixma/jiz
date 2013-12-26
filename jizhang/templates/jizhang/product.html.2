@@ -1,0 +1,39 @@
+{% if prod %}
+	Number of products: {{ prod|length}}
+{% endif %}
+<table border="1"> 
+    <tr>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Vendor ID</th>
+        <th>Price In</th>
+        <th>Price Out</th>
+        <th>Inventory</th>
+        <th>Description</th>
+    </tr>
+    {% for p in prod %}
+    <tr>
+        <td>{{ p.prod_id }}</td>
+        <td>{{ p.prod_name }}</td>
+	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.vend_id.vend_id }}>{{ p.vend_id.vend_id }}</a></td>
+        <td>{{ p.prod_price_in }}</td>
+        <td>{{ p.prod_price_out }}</td>
+	{{ total_out }} = 0
+	{{ inventory }} = 0
+	{% for ord in p.orderitems_set.all %}
+    	    {{ total_out }} = {{ total_out }} + {{ ord.quantity }}
+	    {{ inventory }} = {{ p.prod_total_amount }} - {{ total_out }}
+        {% endfor %}
+        <td>{{ inventory }}</td>
+        <td>{{ p.prod_desc }}</td>
+    {% empty %}
+        <td> Sorry</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href={% url 'jizhang:ProductsHome' %}>Products Home</a>
+<br>
+<a href={% url 'jizhang:home' %}>Jiz Home</a>
