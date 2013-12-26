@@ -13,6 +13,8 @@ class Customers(models.Model):
     cust_mobile = models.SmallIntegerField()
     cust_phone = models.SmallIntegerField(null = True)
     cust_email = models.EmailField(max_length = 254, null = True)
+    cust_taobaoid = models.CharField(max_length = 30)
+    cust_baiduid = models.CharField(max_length = 30, null = True)
 
 class Orders(models.Model):
     order_num = models.IntegerField(max_length = 11, primary_key = True)

@@ -35,8 +35,11 @@ def Orders(request, order_id = None):
 def CustomersHome(request):
 	return render(request, 'jizhang/customershome.html')
 
-def CustomerDetails(request, cust_id):
-	return HttpResponse("You are viewing Customer %s's information." % cust_id)
+def CustomerDetails(request):
+#	return HttpResponse("You are viewing Customer %s's information." % cust_id)
+    cust = get_object_or_404(Customers, pk = request.POST['customer_id'])
+    return render(request, "jizhang/customer.html", {'cust': cust})
+
 
 def ProductsHome(request):
 	return render(request, 'jizhang/productshome.html')
