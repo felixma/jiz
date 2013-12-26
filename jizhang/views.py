@@ -17,23 +17,24 @@ def CustomersHome(request):
 
 def CustomerDetails(request):
 #	return HttpResponse("You are viewing Customer %s's information." % cust_id)
-	pk1 = request.GET.get('customer_id', None)
-	pk2 = request.GET.get('cust_name', None)
-	pk3 = request.GET.get('taobaoid', None)
-	pk4 = request.GET.get('baiduid', None)
-	if pk1 is not None:
-		cust = get_object_or_404(Customers, pk = pk1)
-		return render(request, "jizhang/customer.html", {'cust': cust})
-	elif pk2 is not None:
+	key1 = request.GET.get('customer_id', None)
+	key2 = request.GET.get('cust_name', None)
+	key3 = request.GET.get('taobaoid', None)
+	key4 = request.GET.get('baiduid', None)
+	if key1 is not None:
+		#cust = get_object_or_404(Customers, pk = key1)
+		#cust = get_object_or_404(Customers, cust_id = key1)
+		
+		# get_object_or_404 calls get(), get_list_or_404 calls filter()
+		cust = get_list_or_404(Customers, pk = key1)
+	elif key2 is not None:
 		#cust = get_object_or_404(Customers, pk = pk2)
-		cust = get_list_or_404(Customers, cust_name__regex = pk2)
-		return render(request, "jizhang/customer.html", {'cust': cust})
-	elif pk3 is not None:
-		cust = get_list_or_404(Customers, cust_taobaoid__regex = pk3)
-		return render(request, "jizhang/customer.html", {'cust': cust})
-	elif pk4 is not None:
-		cust = get_list_or_404(Customers, cust_baiduid__regex = pk4)
-		return render(request, "jizhang/customer.html", {'cust': cust})
+		cust = get_list_or_404(Customers, cust_name__regex = key2)
+	elif key3 is not None:
+		cust = get_list_or_404(Customers, cust_taobaoid__regex = key3)
+	elif key4 is not None:
+		cust = get_list_or_404(Customers, cust_baiduid__regex = key4)
+	return render(request, "jizhang/customer.html", {'cust': cust})
 	#return render(request, "jizhang/customer.html", {'cust': cust})
 #    cust = get_object_or_404(Customers, pk = request.GET['customer_id'])
 #	cust = get_object_or_404(Customers, pk)

@@ -1,3 +1,6 @@
+{% if cust %}
+	Number of customers: {{ cust|length}}
+{% endif %}
 <table border="1"> 
 	<tr>
 	    <th>Customer ID</th>
@@ -7,7 +10,11 @@
 	    <th>Taobao ID</th>
 	    <th>Baidu ID</th>
 	</tr>
-{% for c in cust.all %}
+		{% comment %}
+			cust is already a list, so cannot use below
+			{% for c in cust.all %}
+		{% endcomment %}
+	{% for c in cust %}
 	<tr>
 	    <td>{{ c.cust_id }}</td>
 	    <td>{{ c.cust_name }}</td>
@@ -15,6 +22,9 @@
 	    <td>{{ c.cust_mobile }}</td>
 	    <td>{{ c.cust_taobaoid }}</td>
 	    <td>{{ c.cust_baiduid }}</td>
-{% endfor %}
+	    {% empty %}
+	    <td> Sorry</td>
 	</tr>
+	{% endfor %}
+
 </table>
