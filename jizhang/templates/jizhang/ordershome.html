@@ -1,0 +1,49 @@
+<h2>Welcome to Orders Home Page!</h2>
+
+<h4>Latest 5 orders:</h4>
+<table border="1">
+	<tr>
+		<th>Order ID</th>
+		<th>Order Date</th>
+		<th>Status</th>
+		<th>Product</th>
+		<th>Customer</th>
+	</tr>
+	<tr>
+		<td>row 1, cell 1</td>
+		<td>row 1, cell 2</td>
+		<td>row 1, cell 3</td>
+		<td>row 1, cell 4</td>
+		<td>row 1, cell 5</td>
+	</tr>
+	<tr>
+		<td>row 2, cell 1</td>
+		<td>row 2, cell 2</td>
+		<td>row 2, cell 3</td>
+		<td>row 2, cell 4</td>
+		<td>row 2, cell 5</td>
+	</tr>
+</table>
+
+<br>
+<form action="SearchOder.py" method="post">
+	Order ID: <input type="text" name="order_id">
+	<input type="submit" value="search">
+</form>
+
+
+<form action="SearchOrderThisWeek">
+	<input type="button" value="Orders in this week">
+</form>
+
+<form action="SearchOrderThisMonth">
+	<input type="button" value="Orders in this Month">
+</form>
+
+<form action="SearchOrderByTime">
+	<input type="button" value="Search orders by time">
+</form>
+
+<form action="SearchOrderByProduct">
+	<input type="button" value="Search orders by product">
+</form>
