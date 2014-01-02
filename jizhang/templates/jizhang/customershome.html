@@ -1,8 +1,7 @@
 <h2>Welcome to Customers Home Page!</h2>
 
-{# <form action="{% url 'jizhang:CustomerDetails' }" method="post"> #}
-<form action="/customers/" }" method="post">
-{% csrf_token %}
+<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
+	{% csrf_token %}
     Customer ID: <input type="text" name="customer_id">
 	<input type="submit" value="search">
 </form>

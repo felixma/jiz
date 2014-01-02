@@ -10,7 +10,7 @@ class Customers(models.Model):
     cust_state = models.CharField(max_length = 20)
     cust_zip = models.SmallIntegerField(null = True)
     cust_country = models.CharField(max_length = 50, default = 'China')
-    cust_mobile = models.SmallIntegerField()
+    cust_mobile = models.CharField(max_length = 20)
     cust_phone = models.SmallIntegerField(null = True)
     cust_email = models.EmailField(max_length = 254, null = True)
     cust_taobaoid = models.CharField(max_length = 30)

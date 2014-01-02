@@ -1,3 +1,4 @@
+use jiz;
 DROP TABLE jizhang_orderitems;
 DROP TABLE jizhang_productnotes;
 DROP TABLE jizhang_products;

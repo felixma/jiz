@@ -13,7 +13,8 @@ urlpatterns = patterns('',
 
 
         url(r'^customers/?$', views.CustomersHome, name = 'CustomersHome'),
-        url(r'^customers/(?P<cust_id>\d+)/?$', views.CustomerDetails, name = 'CustomerDetails'),
+        #url(r'^customers/(?P<cust_id>\d+)/?$', views.CustomerDetails, name = 'CustomerDetails'),
+        url(r'^customers/\d+/?$', views.CustomerDetails, name = 'CustomerDetails'),
 
         url(r'^products/?$', views.ProductsHome, name = 'ProductsHome'),
         url(r'^products/(?P<prod_id>\d+)/?$', views.ProductDetails, name = 'ProductDetails'),
