@@ -1,12 +1,21 @@
 <h2>Welcome to Customers Home Page!</h2>
 
 <form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	{% csrf_token %}
     Customer ID: <input type="text" name="customer_id">
 	<input type="submit" value="search">
 </form>
 
-<form action="SearchCustomerByName" method="post">
+<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
 	Customer Name: <input type="text" name="cust_name">
+	<input type="submit" value="search">
+</form>
+
+<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
+	Taobao ID: <input type="text" name="taobaoid">
+	<input type="submit" value="search">
+</form>
+
+<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
+	Baidu ID: <input type="text" name="baiduid">
 	<input type="submit" value="search">
 </form>

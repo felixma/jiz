@@ -7,12 +7,14 @@
 	    <th>Taobao ID</th>
 	    <th>Baidu ID</th>
 	</tr>
+{% for c in cust.all %}
 	<tr>
-	    <td>{{ cust.cust_id }}</td>
-	    <td>{{ cust.cust_name }}</td>
-		<td>{{ cust.cust_country }} {{ cust.cust_state }} {{ cust.cust_city }} {{ cust.cust_address }}</td>
-	    <td>{{ cust.cust_mobile }}</td>
-	    <td>{{ cust.cust_taobaoid }}</td>
-	    <td>{{ cust.cust_baiduid }}</td>
+	    <td>{{ c.cust_id }}</td>
+	    <td>{{ c.cust_name }}</td>
+		<td>{{ c.cust_country }} {{ c.cust_state }} {{ c.cust_city }} {{ c.cust_address }}</td>
+	    <td>{{ c.cust_mobile }}</td>
+	    <td>{{ c.cust_taobaoid }}</td>
+	    <td>{{ c.cust_baiduid }}</td>
+{% endfor %}
 	</tr>
 </table>
