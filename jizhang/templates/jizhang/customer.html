@@ -2,29 +2,29 @@
 	Number of customers: {{ cust|length}}
 {% endif %}
 <table border="1"> 
-	<tr>
-	    <th>Customer ID</th>
-	    <th>Name</th>
-	    <th>Address</th>
-	    <th>Mobile</th>
-	    <th>Taobao ID</th>
-	    <th>Baidu ID</th>
-	</tr>
-		{% comment %}
-			cust is already a list, so cannot use below
-			{% for c in cust.all %}
-		{% endcomment %}
-	{% for c in cust %}
-	<tr>
-	    <td>{{ c.cust_id }}</td>
-	    <td>{{ c.cust_name }}</td>
-		<td>{{ c.cust_country }} {{ c.cust_state }} {{ c.cust_city }} {{ c.cust_address }}</td>
-	    <td>{{ c.cust_mobile }}</td>
-	    <td>{{ c.cust_taobaoid }}</td>
-	    <td>{{ c.cust_baiduid }}</td>
-	    {% empty %}
-	    <td> Sorry</td>
-	</tr>
-	{% endfor %}
+    <tr>
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Taobao ID</th>
+        <th>Baidu ID</th>
+    </tr>
+	{% comment %}
+		cust is already a list, so cannot use below
+		{% for c in cust.all %}
+	{% endcomment %}
+    {% for c in cust %}
+    <tr>
+        <td>{{ c.cust_id }}</td>
+        <td>{{ c.cust_name }}</td>
+	<td>{{ c.cust_country }} {{ c.cust_state }} {{ c.cust_city }} {{ c.cust_address }}</td>
+        <td>{{ c.cust_mobile }}</td>
+        <td>{{ c.cust_taobaoid }}</td>
+        <td>{{ c.cust_baiduid }}</td>
+    {% empty %}
+        <td> Sorry</td>
+    </tr>
+    {% endfor %}
 
 </table>
