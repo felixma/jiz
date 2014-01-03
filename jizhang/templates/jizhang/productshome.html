@@ -1,21 +1,16 @@
-<h2>Welcome to Customers Home Page!</h2>
+<h2>Welcome to Products Home Page!</h2>
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-    Customer ID: <input type="text" name="customer_id">
-	<input type="submit" value="search">
+<form action="{% url 'jizhang:ProductDetails' %}" method="post">
+    Product ID: <input type="text" name="prod_id">
+    <input type="submit" value="search">
 </form>
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	Customer Name: <input type="text" name="cust_name">
-	<input type="submit" value="search">
+<form action="{% url 'jizhang:ProductDetails' %}" method="post">
+    Product Name: <input type="text" name="prod_name">
+    <input type="submit" value="search">
 </form>
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	Taobao ID: <input type="text" name="taobaoid">
-	<input type="submit" value="search">
-</form>
-
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	Baidu ID: <input type="text" name="baiduid">
-	<input type="submit" value="search">
+<form action="{% url 'jizhang:ProductDetails' %}" method="post">
+    Vender Name: <input type="text" name="vend_name">
+    <input type="submit" value="search">
 </form>
