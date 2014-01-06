@@ -11,14 +11,14 @@
         <th>Inventory</th>
         <th>Description</th>
     </tr>
-    {% for p in prod.keys %}
+    {% for p in prod %}
     <tr>
         <td>{{ p.prod_id }}</td>
         <td>{{ p.prod_name }}</td>
 	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.vend_id.vend_id }}>{{ p.vend_id.vend_id }}</a></td>
         <td>{{ p.prod_price_in }}</td>
         <td>{{ p.prod_price_out }}</td>
-        <td>{{ prod.p }}</td>
+	<td>{{ inventory.{{ p.prod_id }} }}</td>
         <td>{{ p.prod_desc }}</td>
     {% empty %}
         <td> Sorry</td>
