@@ -87,8 +87,9 @@ def ProductDetails(request):
 def OrdersHome(request):
     return render(request, 'jizhang/ordershome.html')
 
-def OrderDetails(request, order_id):
-    return HttpResponse("You are viewing Order %s's information." % order_id)
+def OrderDetails(request):
+    return render(request, "jizhang/order.html", )
+    #return render(request, "jizhang/order.html", {'order': order})
 
 def VendorsHome(request):
     return render(request, 'jizhang/vendorshome.html')

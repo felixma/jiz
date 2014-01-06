@@ -26,14 +26,14 @@
 </table>
 
 <br>
-<form action="SearchOrder.py" method="post">
+<form action="{% url 'jizhang:OrderDetails' %}" method="get">
 	Order ID: <input type="text" name="order_id">
 	<input type="submit" value="search">
 </form>
 
 
-<form action="SearchOrderThisWeek">
-	<input type="button" value="Orders in this week">
+<form action="{% url 'jizhang:OrderDetails' %}">
+    <input type="submit" name="OrdersInWeek" value="Orders in this week" class="button"></input>
 </form>
 
 <form action="SearchOrderThisMonth">
