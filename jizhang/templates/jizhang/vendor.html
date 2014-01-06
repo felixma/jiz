@@ -1,14 +1,14 @@
 {% if vend %}
-	Number of vendors: {{ vend|length}}
+	生产商数: {{ vend|length}}
 {% endif %}
 <table border="1"> 
     <tr>
-        <th>Vendor ID</th>
-        <th>Name</th>
-        <th>State</th>
-        <th>City</th>
-        <th>Address</th>
-        <th>Zip Code</th>
+        <th>生产商ID</th>
+        <th>名称</th>
+        <th>省份</th>
+        <th>城市</th>
+        <th>地址</th>
+        <th>邮编</th>
     </tr>
     {% for v in vend %}
     <tr>

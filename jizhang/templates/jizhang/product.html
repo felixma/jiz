@@ -15,7 +15,7 @@
     <tr>
         <td>{{ prod.prod_id }}</td>
         <td>{{ prod.prod_name }}</td>
-	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_id }}</a></td>
+	<td><a href={% url 'jizhang:VendorDetails' %}?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_id }}</a></td>
         <td>{{ prod.prod_price_in }}</td>
         <td>{{ prod.prod_price_out }}</td>
 	<td>{{ inv }}</td>
