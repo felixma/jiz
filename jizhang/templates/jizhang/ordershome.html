@@ -1,29 +1,33 @@
-<h2>Welcome to Orders Home Page!</h2>
+<h2>欢迎来到订单主页!</h2>
 
-<h4>Latest 5 orders:</h4>
+<h4>最近5个订单:</h4>
 <table border="1">
 	<tr>
-		<th>Order ID</th>
-		<th>Order Date</th>
-		<th>Status</th>
-		<th>Product</th>
-		<th>Customer</th>
+		<th>订单ID</th>
+		<th>下单日期</th>
+		<th>状态</th>
+		<th>客户</th>
+		<th>产品</th>
 	</tr>
     {% for order in orders %}
+    <tr>
+	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:OrderDetails'%}?order_id={{ order.order_id }}>{{ order.order_id }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_date }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_status }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:CustomerDetails'%}?customer_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
+	{% for item in order.orderitems_set.all %}
+	<td><a href={% url "jizhang:ProductDetails"%}?prod_id={{item.prod_id.prod_id}}>{{ item.prod_id.prod_name }}</td>
+	</tr>
 	<tr>
-        <td><a href={% url 'jizhang:OrderDetails'%}?order_id={{ order.order_id }}>{{ order.order_id }}</td>
-        <td>{{ order.order_date }}</td>
-        <td>{{ order.order_status }}</td>
-        <td>not implemented</td>
-        <td><a href={% url 'jizhang:CustomerDetails'%}?customer_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
+	{% endfor %}
 	</tr>
     {% endfor %}
 </table>
 
 <br>
 <form action="{% url 'jizhang:OrderDetails' %}" method="get">
-	Order ID: <input type="text" name="order_id">
-	<input type="submit" value="search">
+	订单ID: <input type="text" name="order_id">
+	<input type="submit" value="搜索">
 </form>
 
 

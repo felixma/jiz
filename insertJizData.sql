@@ -34,8 +34,10 @@ INSERT jizhang_orderitems VALUES
 INSERT jizhang_orderitems VALUES
 (2, 1, 1, 5, 50);
 INSERT jizhang_orderitems VALUES
-(3, 1, 1, 5, 50);
+(3, 2, 2, 5, 50);
 INSERT jizhang_orderitems VALUES
-(4, 1, 4, 30, 20);
+(4, 3, 3, 30, 20);
+INSERT jizhang_orderitems VALUES
+(5, 4, 4, 30, 20);
 
 
