@@ -1,14 +1,14 @@
 {% if cust %}
-	Number of customers: {{ cust|length}}
+	客户数: {{ cust|length}}
 {% endif %}
 <table border="1"> 
     <tr>
-        <th>Customer ID</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Mobile</th>
-        <th>Taobao ID</th>
-        <th>Baidu ID</th>
+        <th>客户ID</th>
+        <th>姓名</th>
+        <th>地址</th>
+        <th>手机</th>
+        <th>淘宝ID</th>
+        <th>淘宝ID</th>
     </tr>
 	{% comment %}
 		cust is already a list, so cannot use below

@@ -1,16 +1,16 @@
-<h2>Welcome to Products Home Page!</h2>
+<h2>欢迎来到产品主页!</h2>
 
 <form action="{% url 'jizhang:ProductDetails' %}" method="get">
-    Product ID: <input type="text" name="prod_id">
-    <input type="submit" value="search">
+    产品ID: <input type="text" name="prod_id">
+    <input type="submit" value="搜索">
 </form>
 
 <form action="{% url 'jizhang:ProductDetails' %}" method="get">
-    Product Name: <input type="text" name="prod_name">
-    <input type="submit" value="search">
+    产品名称: <input type="text" name="prod_name">
+    <input type="submit" value="搜索">
 </form>
 
 <form action="{% url 'jizhang:ProductDetails' %}" method="get">
-    Vendor Name: <input type="text" name="vend_name">
-    <input type="submit" value="search">
+    生产商名称: <input type="text" name="vend_name">
+    <input type="submit" value="搜索">
 </form>

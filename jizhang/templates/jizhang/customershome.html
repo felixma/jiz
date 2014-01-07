@@ -1,21 +1,21 @@
-<h2>Welcome to Customers Home Page!</h2>
+<h2>欢迎来到客户主页!</h2>
 
 <form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-    Customer ID: <input type="text" name="customer_id">
-	<input type="submit" value="search">
+    客户ID: <input type="text" name="customer_id">
+	<input type="submit" value="搜索">
 </form>
 
 <form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	Customer Name: <input type="text" name="cust_name">
-	<input type="submit" value="search">
+	客户Name: <input type="text" name="cust_name">
+	<input type="submit" value="搜索">
 </form>
 
 <form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	Taobao ID: <input type="text" name="taobaoid">
-	<input type="submit" value="search">
+	淘宝ID: <input type="text" name="taobaoid">
+	<input type="submit" value="搜索">
 </form>
 
 <form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	Baidu ID: <input type="text" name="baiduid">
-	<input type="submit" value="search">
+	百度ID: <input type="text" name="baiduid">
+	<input type="submit" value="搜索">
 </form>

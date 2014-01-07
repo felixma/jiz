@@ -1,6 +1,9 @@
-from django.db import models
+# -*- coding: utf-8 -*-
 
 # Create your models here.
+
+from django.db import models
+
 
 class Customers(models.Model):
     cust_id = models.IntegerField(max_length = 11, primary_key = True)

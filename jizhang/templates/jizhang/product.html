@@ -1,15 +1,15 @@
 {% if inventory %}
-	Number of products: {{ inventory|length}}
+	产品总数: {{ inventory|length}}
 {% endif %}
 <table border="1"> 
     <tr>
-        <th>Product ID</th>
-        <th>Name</th>
-        <th>Vendor ID</th>
-        <th>Price In</th>
-        <th>Price Out</th>
-        <th>Inventory</th>
-        <th>Description</th>
+        <th>产品ID</th>
+        <th>姓名</th>
+        <th>生产商ID</th>
+        <th>进价</th>
+        <th>出价</th>
+        <th>库存</th>
+        <th>描述</th>
     </tr>
     {% for prod,inv in inventory %}
     <tr>
@@ -28,6 +28,6 @@
 </table>
 
 <br>
-<a href={% url 'jizhang:ProductsHome' %}>Products Home</a>
+<a href={% url 'jizhang:ProductsHome' %}>产品主页</a>
 <br>
-<a href={% url 'jizhang:home' %}>Jiz Home</a>
+<a href={% url 'jizhang:home' %}>Jiz主页</a>
