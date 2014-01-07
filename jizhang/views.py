@@ -99,7 +99,6 @@ def OrderDetails(request):
         #orders = Orders.objects.get(pk = key1)
         return render(request, 'jizhang/order.html', {'orders':orders})
 
-
     elif request.GET.has_key('OrdersInWeek'):
         date = datetime.date.today()
         start_week = date - datetime.timedelta(date.weekday())
@@ -109,6 +108,13 @@ def OrderDetails(request):
         except Orders.DoesNotExist:
             raise Http404
         return render(request, "jizhang/order.html", {'orders': orders} )
+
+    elif request.GET.has_key('OrdersInMonth'):
+	#orders = Orders.objects.filter(order_date__month = datetime.date.today().month)
+	orders = get_list_or_404(Orders, order_date__month = datetime.date.today().month)
+        return render(request, 'jizhang/order.html', {'orders':orders})
+
+
     #return render(request, "jizhang/order.html", {'order': order})
 
 def VendorsHome(request):
