@@ -14,13 +14,13 @@
 	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:OrderDetails'%}?order_id={{ order.order_id }}>{{ order.order_id }}</td>
 	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_date }}</td>
 	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_status }}</td>
-	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:CustomerDetails'%}?customer_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:CustomerDetails'%}?cust_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
 	{% for item in order.orderitems_set.all %}
 	<td><a href={% url "jizhang:ProductDetails"%}?prod_id={{item.prod_id.prod_id}}>{{ item.prod_id.prod_name }}</td>
 	</tr>
 	<tr>
 	{% endfor %}
-	</tr>
+    </tr>
     {% endfor %}
 </table>
 

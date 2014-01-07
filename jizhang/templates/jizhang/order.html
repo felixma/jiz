@@ -1,21 +1,33 @@
-{% if orders %}
-	订单数: {{ orders|length}}
+{% if OrdersWithTotalPrice %}
+	订单数: {{ OrdersWwithTotalPrice|length}}
 {% endif %}
 <table border="1"> 
     <tr>
         <th>订单ID</th>
-        <th>订单日期</th>
+        <th>下单日期</th>
         <th>状态</th>
         <th>客户</th>
         <th>订单URL</th>
+        <th>产品</th>
+        <th>数量</th>
+        <th>单价</th>
+        <th>总价</th>
     </tr>
-    {% for order in orders %}
+    {% for order, price in OrdersWithTotalPrice %}
     <tr>
-        <td>{{ order.order_id }}</td>
-        <td>{{ order.order_date }}</td>
-        <td>{{ order.order_status }}</td>
-	<td><a href={% url 'jizhang:CustomerDetails' %}?cust_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
-	<td><a href={{ order.order_url }}>这里</td>
+	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_id }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_date }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_status }}</td>
+	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:CustomerDetails' %}?cust_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
+        <td rowspan={{ order.orderitems_set.all.count }}><a href={{ order.order_url }}>这里</td>
+	{% for item in order.orderitems_set.all %}
+	<td><a href="{% url 'jizhang:ProductDetails'%}?prod_id={{ item.prod_id }}">{{ item.prod_id.prod_name }}</td>
+	<td>{{ item.quantity }}</td>
+	<td>{{ item.item_price }}</td>
+	<td>{{ price }}</td>
+	</tr>
+	<tr>
+	{% endfor %}
     </tr>
     {% endfor %}
 

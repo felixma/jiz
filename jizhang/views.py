@@ -48,32 +48,35 @@ def ProductsHome(request):
     return render(request, 'jizhang/productshome.html')
 
 def ProductDetails(request):
-    key1 = request.GET.get('prod_id', None)
-    key2 = request.GET.get('prod_name', None)
-    key3 = request.GET.get('vend_name', None)
-    if key1 is not None:
-        prod = get_list_or_404(Products, pk = key1)
-    elif key2 is not None:
-	prod = get_list_or_404(Products, prod_name__regex = key2)
-    elif key3 is not None:
-	vend = get_list_or_404(Vendors, vend_name__regex = key3)
-	prod = []
-	for v in vend:
-	    prod.extend(Vendors.objects.get(vend_id = v.vend_id).products_set.all())
+    if request.GET.has_key('AllProducts'):
+	prod = get_list_or_404(Products)
+    else:
+	key1 = request.GET.get('prod_id', None)
+        key2 = request.GET.get('prod_name', None)
+        key3 = request.GET.get('vend_name', None)
+        if key1 is not None:
+            prod = get_list_or_404(Products, pk = key1)
+        elif key2 is not None:
+	    prod = get_list_or_404(Products, prod_name__regex = key2)
+        elif key3 is not None:
+	    vend = get_list_or_404(Vendors, vend_name__regex = key3)
+	    prod = []
+	    for v in vend:
+	        prod.extend(Vendors.objects.get(vend_id = v.vend_id).products_set.all())
 	#prod = get_list_or_404(Products, vend_id = vend[0].vend_id)
-    '''
-    inventory = {} 
-    for p in prod:
-	total_out = 0
-	for order in Products.objects.get(pk = p.prod_id).orderitems_set.all(): 
-	#for order in p.Orderitems_set.all(): 
-	    total_out = total_out + order.quantity
-	inv = p.prod_total_amount - total_out
-	inventory[p.prod_id] = inv
-    return render(request, "jizhang/product.html", 
-	    {'prod': prod,
-	     'inventory': inventory})
-    '''
+        '''
+        inventory = {} 
+        for p in prod:
+	    total_out = 0
+	    for order in Products.objects.get(pk = p.prod_id).orderitems_set.all(): 
+	    #for order in p.Orderitems_set.all(): 
+	        total_out = total_out + order.quantity
+	    inv = p.prod_total_amount - total_out
+	    inventory[p.prod_id] = inv
+        return render(request, "jizhang/product.html", 
+	        {'prod': prod,
+	         'inventory': inventory})
+        '''
     inventory = []
     for p in prod:
         total_out = 0
@@ -97,8 +100,7 @@ def OrderDetails(request):
     if key1 is not None:
         orders = get_list_or_404(Orders, pk = key1)
         #orders = Orders.objects.get(pk = key1)
-        return render(request, 'jizhang/order.html', {'orders':orders})
-
+        #return render(request, 'jizhang/order.html', {'orders':orders})
     elif request.GET.has_key('OrdersInWeek'):
         date = datetime.date.today()
         start_week = date - datetime.timedelta(date.weekday())
@@ -107,15 +109,20 @@ def OrderDetails(request):
             orders = Orders.objects.filter(order_date__range = [start_week, end_week])
         except Orders.DoesNotExist:
             raise Http404
-        return render(request, "jizhang/order.html", {'orders': orders} )
-
+        #return render(request, "jizhang/order.html", {'orders': orders} )
     elif request.GET.has_key('OrdersInMonth'):
 	#orders = Orders.objects.filter(order_date__month = datetime.date.today().month)
 	orders = get_list_or_404(Orders, order_date__month = datetime.date.today().month)
-        return render(request, 'jizhang/order.html', {'orders':orders})
-
-
-    #return render(request, "jizhang/order.html", {'order': order})
+        #return render(request, 'jizhang/order.html', {'orders':orders})
+   
+    # caculate total price for a specific order #
+    orders_with_totalprice = []
+    for ord in orders:
+	price = 0
+	for item in ord.orderitems_set.all():
+	    price = price + item.quantity * item.item_price
+	orders_with_totalprice.append([ord, price])
+    return render(request, "jizhang/order.html", {'OrdersWithTotalPrice': orders_with_totalprice})
 
 def VendorsHome(request):
     return render(request, 'jizhang/vendorshome.html')

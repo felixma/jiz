@@ -14,3 +14,7 @@
     生产商名称: <input type="text" name="vend_name">
     <input type="submit" value="搜索">
 </form>
+
+<form action="{% url 'jizhang:ProductDetails' %}" method="get">
+    <input type="submit" name="AllProducts" value = "所有产品" class="button"></input>
+</form>

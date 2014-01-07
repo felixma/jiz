@@ -5,7 +5,7 @@
     <tr>
         <th>产品ID</th>
         <th>姓名</th>
-        <th>生产商ID</th>
+        <th>生产商</th>
         <th>进价</th>
         <th>出价</th>
         <th>库存</th>
@@ -15,7 +15,7 @@
     <tr>
         <td>{{ prod.prod_id }}</td>
         <td>{{ prod.prod_name }}</td>
-	<td><a href={% url 'jizhang:VendorDetails' %}?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_id }}</a></td>
+	<td><a href={% url 'jizhang:VendorDetails' %}?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_name }}</a></td>
         <td>{{ prod.prod_price_in }}</td>
         <td>{{ prod.prod_price_out }}</td>
 	<td>{{ inv }}</td>
