@@ -58,6 +58,7 @@ def ProductDetails(request):
 	for v in vend:
 	    prod.extend(Vendors.objects.get(vend_id = v.vend_id).products_set.all())
 	#prod = get_list_or_404(Products, vend_id = vend[0].vend_id)
+    '''
     inventory = {} 
     for p in prod:
 	total_out = 0
@@ -69,7 +70,15 @@ def ProductDetails(request):
     return render(request, "jizhang/product.html", 
 	    {'prod': prod,
 	     'inventory': inventory})
-
+    '''
+    inventory = []
+    for p in prod:
+        total_out = 0
+        for order in Products.objects.get(pk = p.prod_id).orderitems_set.all():
+            total_out = total_out + order.quantity
+        inv = p.prod_total_amount - total_out
+        inventory.append((p, inv))
+    return render(request, "jizhang/product.html", {'inventory': inventory})
 
     #return HttpResponse("You are viewing Product %s's information." % prod_id)
 

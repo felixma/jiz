@@ -1,5 +1,5 @@
-{% if prod %}
-	Number of products: {{ prod|length}}
+{% if inventory %}
+	Number of products: {{ inventory|length}}
 {% endif %}
 <table border="1"> 
     <tr>
@@ -11,15 +11,15 @@
         <th>Inventory</th>
         <th>Description</th>
     </tr>
-    {% for p in prod %}
+    {% for p in inventory %}
     <tr>
-        <td>{{ p.prod_id }}</td>
-        <td>{{ p.prod_name }}</td>
-	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.vend_id.vend_id }}>{{ p.vend_id.vend_id }}</a></td>
-        <td>{{ p.prod_price_in }}</td>
-        <td>{{ p.prod_price_out }}</td>
-	<td>{{ inventory.{{ p.prod_id }} }}</td>
-        <td>{{ p.prod_desc }}</td>
+        <td>{{ p.0.prod_id }}</td>
+        <td>{{ p.0.prod_name }}</td>
+	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.0.vend_id.vend_id }}>{{ p.0.vend_id.vend_id }}</a></td>
+        <td>{{ p.0.prod_price_in }}</td>
+        <td>{{ p.0.prod_price_out }}</td>
+	<td>{{ p.1 }}</td>
+        <td>{{ p.0.prod_desc }}</td>
     {% empty %}
         <td> Sorry</td>
     </tr>
