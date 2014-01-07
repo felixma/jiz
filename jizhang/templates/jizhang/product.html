@@ -11,15 +11,15 @@
         <th>Inventory</th>
         <th>Description</th>
     </tr>
-    {% for p in inventory %}
+    {% for prod,inv in inventory %}
     <tr>
-        <td>{{ p.0.prod_id }}</td>
-        <td>{{ p.0.prod_name }}</td>
-	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ p.0.vend_id.vend_id }}>{{ p.0.vend_id.vend_id }}</a></td>
-        <td>{{ p.0.prod_price_in }}</td>
-        <td>{{ p.0.prod_price_out }}</td>
-	<td>{{ p.1 }}</td>
-        <td>{{ p.0.prod_desc }}</td>
+        <td>{{ prod.prod_id }}</td>
+        <td>{{ prod.prod_name }}</td>
+	<td><a href=http://192.168.217.13:8081/vendor?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_id }}</a></td>
+        <td>{{ prod.prod_price_in }}</td>
+        <td>{{ prod.prod_price_out }}</td>
+	<td>{{ inv }}</td>
+        <td>{{ prod.prod_desc }}</td>
     {% empty %}
         <td> Sorry</td>
     </tr>
