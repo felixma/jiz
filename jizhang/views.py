@@ -19,7 +19,7 @@ def CustomersHome(request):
 
 def CustomerDetails(request):
 #	return HttpResponse("You are viewing Customer %s's information." % cust_id)
-    key1 = request.GET.get('customer_id', None)
+    key1 = request.GET.get('cust_id', None)
     key2 = request.GET.get('cust_name', None)
     key3 = request.GET.get('taobaoid', None)
     key4 = request.GET.get('baiduid', None)
@@ -88,7 +88,15 @@ def OrdersHome(request):
     return render(request, 'jizhang/ordershome.html')
 
 def OrderDetails(request):
-    return render(request, "jizhang/order.html", )
+    key1 = request.GET.get('order_id', None)
+    if key1 is not None:
+	orders = get_list_or_404(Orders, pk = key1)
+	#orders = Orders.objects.get(pk = key1)
+	return render(request, 'jizhang/order.html', {'orders':orders})
+
+
+    elif request.GET.has_key('OrdersInWeek'):
+	return render(request, "jizhang/order.html", )
     #return render(request, "jizhang/order.html", {'order': order})
 
 def VendorsHome(request):

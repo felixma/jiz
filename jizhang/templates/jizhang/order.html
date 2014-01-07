@@ -1,33 +1,27 @@
-{% if inventory %}
-	产品总数: {{ inventory|length}}
+{% if orders %}
+	订单数: {{ orders|length}}
 {% endif %}
 <table border="1"> 
     <tr>
-        <th>产品ID</th>
-        <th>姓名</th>
-        <th>生产商ID</th>
-        <th>进价</th>
-        <th>出价</th>
-        <th>库存</th>
-        <th>描述</th>
+        <th>订单ID</th>
+        <th>订单日期</th>
+        <th>状态</th>
+        <th>客户</th>
+        <th>订单URL</th>
     </tr>
-    {% for prod,inv in inventory %}
+    {% for order in orders %}
     <tr>
-        <td>{{ prod.prod_id }}</td>
-        <td>{{ prod.prod_name }}</td>
-	<td><a href={% url 'jizhang:VendorDetails' %}?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_id }}</a></td>
-        <td>{{ prod.prod_price_in }}</td>
-        <td>{{ prod.prod_price_out }}</td>
-	<td>{{ inv }}</td>
-        <td>{{ prod.prod_desc }}</td>
-    {% empty %}
-        <td> Sorry</td>
+        <td>{{ order.order_num }}</td>
+        <td>{{ order.order_date }}</td>
+        <td>{{ order.order_status }}</td>
+	<td><a href={% url 'jizhang:CustomerDetails' %}?cust_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
+	<td><a href={{ order.order_url }}>这里</td>
     </tr>
     {% endfor %}
 
 </table>
 
 <br>
-<a href={% url 'jizhang:ProductsHome' %}>产品主页</a>
+<a href={% url 'jizhang:OrdersHome' %}>订单主页</a>
 <br>
 <a href={% url 'jizhang:home' %}>Jiz主页</a>

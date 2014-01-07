@@ -32,8 +32,8 @@
 </form>
 
 
-<form action="{% url 'jizhang:OrderDetails' %}">
-    <input type="submit" name="OrdersInWeek" value="Orders in this week" class="button"></input>
+<form action="{% url 'jizhang:OrderDetails' %}" method="get">
+    <input type="submit" name="OrdersInWeek" value="本周订单" class="button"></input>
 </form>
 
 <form action="SearchOrderThisMonth">
