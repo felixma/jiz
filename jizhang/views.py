@@ -44,17 +44,17 @@ def ProductsHome(request):
 
 def ProductDetails(request):
     if request.GET.has_key('AllProducts'):
-	prod = get_list_or_404(Products)
+        prod = get_list_or_404(Products)
     else:
-	key1 = request.GET.get('prod_id', None)
+        key1 = request.GET.get('prod_id', None)
         key2 = request.GET.get('prod_name', None)
         key3 = request.GET.get('vend_name', None)
         if key1 is not None:
             prod = get_list_or_404(Products, pk = key1)
         elif key2 is not None:
-	    prod = get_list_or_404(Products, prod_name__regex = key2)
+            prod = get_list_or_404(Products, prod_name__regex = key2)
         elif key3 is not None:
-	    vend = get_list_or_404(Vendors, vend_name__regex = key3)
+            vend = get_list_or_404(Vendors, vend_name__regex = key3)
 	    prod = []
 	    for v in vend:
 	        prod.extend(Vendors.objects.get(vend_id = v.vend_id).products_set.all())
