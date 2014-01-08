@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="Jiz">
-    <meta content="" name="felix23ma@gmail.com">
-    <!-- <link href="../../docs-assets/ico/favicon.png" rel="shortcut icon"> -->
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="../../docs-assets/ico/favicon.png" rel="shortcut icon">
 
-    <title>Jiz - 淘宝记账</title>
+    <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     {% load staticfiles %}
@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a href="#" class="navbar-brand">Jiz</a>
+              <a href="#" class="navbar-brand">Project name</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -82,7 +82,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-            <img alt="First slide"  src="{% static "img/chiqingsi1.jpg" %}" >
+            <img alt="First slide" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" src="">
           <div class="container">
             <div class="carousel-caption">
               <h1>Example headline.</h1>
@@ -91,9 +91,16 @@
             </div>
           </div>
         </div>
+        <ul>
+            <ul>
+    <li><a href="{% url 'jizhang:OrdersHome' %}">订单</a> </li>
+    <li><a href="{% url 'jizhang:ProductsHome' %}">产品</a> </li>
+    <li><a href="{% url 'jizhang:CustomersHome' %}">客户</a> </li>
+    <li><a href="{% url 'jizhang:VendorsHome' %}">生产商</a> </li>
+</ul>
 
         <div class="item">
-            <img alt="Second slide" src="{% static "img/chiqingsi2.jpg" %}" >
+            <img alt="Second slide" data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" src="">
           <div class="container">
             <div class="carousel-caption">
               <h1>Another example headline.</h1>
@@ -182,7 +189,7 @@
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <script src="{% static "css/bootstrap.min.css" %}"></script>
-    <script src="{% static "js/holder.js" %}"></script>
+    <script src="http://cdn.bootcss.com/holder/2.0/holder.min.js"></script>
   
 
 </body></html>
