@@ -85,7 +85,11 @@ def ProductDetails(request):
     #return HttpResponse("You are viewing Product %s's information." % prod_id)
 
 def OrdersHome(request):
-    return render(request, 'jizhang/ordershome.html')
+    try:
+        orders = Orders.objects.all().order_by('-order_date')[:5]
+    except Orders.DoesNotExist:
+        raise Http404
+    return render(request, 'jizhang/ordershome.html', {'orders': orders})
 
 def OrderDetails(request):
     return render(request, "jizhang/order.html", )

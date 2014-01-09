@@ -9,20 +9,15 @@
 		<th>Product</th>
 		<th>Customer</th>
 	</tr>
+    {% for order in orders %}
 	<tr>
-		<td>row 1, cell 1</td>
-		<td>row 1, cell 2</td>
-		<td>row 1, cell 3</td>
-		<td>row 1, cell 4</td>
-		<td>row 1, cell 5</td>
+        <td><a href={% url 'jizhang:OrderDetails'%}?order_num={{ order.order_num }}>{{ order.order_num }}</td>
+        <td>{{ order.order_date }}</td>
+        <td>{{ order.order_status }}</td>
+        <td>not implemented</td>
+        <td><a href={% url 'jizhang:CustomerDetails'%}?customer_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
 	</tr>
-	<tr>
-		<td>row 2, cell 1</td>
-		<td>row 2, cell 2</td>
-		<td>row 2, cell 3</td>
-		<td>row 2, cell 4</td>
-		<td>row 2, cell 5</td>
-	</tr>
+    {% endfor %}
 </table>
 
 <br>
