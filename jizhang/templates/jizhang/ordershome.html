@@ -11,7 +11,7 @@
 	</tr>
     {% for order in orders %}
 	<tr>
-        <td><a href={% url 'jizhang:OrderDetails'%}?order_num={{ order.order_num }}>{{ order.order_num }}</td>
+        <td><a href={% url 'jizhang:OrderDetails'%}?order_id={{ order.order_id }}>{{ order.order_id }}</td>
         <td>{{ order.order_date }}</td>
         <td>{{ order.order_status }}</td>
         <td>not implemented</td>

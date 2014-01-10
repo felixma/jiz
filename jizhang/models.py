@@ -20,7 +20,7 @@ class Customers(models.Model):
     cust_baiduid = models.CharField(max_length = 30, null = True)
 
 class Orders(models.Model):
-    order_num = models.IntegerField(max_length = 11, primary_key = True)
+    order_id = models.IntegerField(max_length = 11, primary_key = True)
     order_date = models.DateField()
     cust_id = models.ForeignKey(Customers, db_column = 'cust_id')
     order_status = models.IntegerField()
@@ -54,9 +54,9 @@ class Products(models.Model):
 	return self.prod_total_amount - total_out
     '''
 class Orderitems(models.Model):
-    #order_num = models.ForeignKey(Orders, primary_key = True)
+    #order_id = models.ForeignKey(Orders, primary_key = True)
     order_item = models.IntegerField(max_length = 11, primary_key = True)
-    order_num = models.ForeignKey(Orders, db_column = 'order_num')
+    order_id = models.ForeignKey(Orders, db_column = 'order_id')
     #order_item = models.IntegerField(max_length = 11)
     #prod_id = models.CharField(max_length = 50)
     prod_id = models.ForeignKey(Products, db_column = 'prod_id')
