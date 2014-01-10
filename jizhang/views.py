@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import Http404
+import datetime
 
 
 from jizhang.models import Orders, Customers, Products, Vendors, Orderitems, Productnotes
@@ -94,13 +95,20 @@ def OrdersHome(request):
 def OrderDetails(request):
     key1 = request.GET.get('order_id', None)
     if key1 is not None:
-	orders = get_list_or_404(Orders, pk = key1)
-	#orders = Orders.objects.get(pk = key1)
-	return render(request, 'jizhang/order.html', {'orders':orders})
+        orders = get_list_or_404(Orders, pk = key1)
+        #orders = Orders.objects.get(pk = key1)
+        return render(request, 'jizhang/order.html', {'orders':orders})
 
 
     elif request.GET.has_key('OrdersInWeek'):
-	return render(request, "jizhang/order.html", )
+        date = datetime.date.today()
+        start_week = date - datetime.timedelta(date.weekday())
+        end_week = start_week + datetime.timedelta(7)
+        try:
+            orders = Orders.objects.filter(order_date__range = [start_week, end_week])
+        except Orders.DoesNotExist:
+            raise Http404
+        return render(request, "jizhang/order.html", {'orders': orders} )
     #return render(request, "jizhang/order.html", {'order': order})
 
 def VendorsHome(request):
