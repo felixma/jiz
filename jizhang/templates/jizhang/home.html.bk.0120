@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="Jiz">
+    <meta content="" name="felix23ma@gmail.com">
+    <!-- <link href="../../docs-assets/ico/favicon.png" rel="shortcut icon"> -->
+
+    <title>Jiz - 淘宝记账</title>
+
+    <!-- Bootstrap core CSS -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static "css/carousel.css" %}">
+  <style id="holderjs-style" type="text/css"></style>
+</head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div role="navigation" class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand">Jiz</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div data-ride="carousel" class="carousel slide" id="myCarousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+        <li data-slide-to="1" data-target="#myCarousel" class=""></li>
+        <li data-slide-to="2" data-target="#myCarousel" class=""></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+            <img alt="First slide"  data-src="{% static "js/holder.js/900x500/auto/#777:#7a7a7a/text:First slide" %}" src="{% static "img/chiqingsi1.jpg" %}" >
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a role="button" href="#" class="btn btn-lg btn-primary">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+            <img alt="Second slide" data-src="{% static "js/holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" %}" src="{% static "img/chiqingsi2.jpg" %}" >
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a role="button" href="#" class="btn btn-lg btn-primary">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+            <img alt="Third slide" data-src="{% static "js/holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" %}" src="{% static "img/chiqingsi3.jpg" %}">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a role="button" href="#" class="btn btn-lg btn-primary">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a data-slide="prev" href="#myCarousel" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a data-slide="next" href="#myCarousel" class="right carousel-control"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+            <img alt="140x140" data-src="{% static "js/holder.js/140x140" %}" class="img-circle" style="width: 140px; height: 140px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAACdklEQVR4nO3YMW7iQBiA0dz/KC5duaKhoeQAPoOv4K0GJSyr7CeRTcy+4hUwoIn4Pw8mb9u27fC33r77D+BYBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIheYlglmXZp2l6uHa9Xvdpmvbz+Xx7bl3XfZqmm3Vdf/R+P8nhg3k/iEfr8zz/NsB5nvfT6XQb/jzPP3a/n+awwby/aseQ7l9zPp9vrxkDHCfA5XLZt23bL5fLPk3Tfr1eb2tjuKfT6bb2Fft992f43wUzrtRHXxFjwGOIY4D3AxuPx0BHJON9I56v2u9oDhvMe48GuCzLvizLh0E+GuD9CbBtn3/tPHu/I3nJYMaQ1nX9dICPrvhxyozT5av3O5KXDGY8vrcsy6f3FGN9eHSv8cz9juYlg3nv/orftu3D6XH/q2Xc0I73PfpF88z9jua/DOZP/xcZN6zjNLi/gX32fkf0EsHw7wiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCS/AKycQ7DmKYK8AAAAAElFTkSuQmCC">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+          <p><a role="button" href="#" class="btn btn-default">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img alt="140x140" data-src="holder.js/140x140" class="img-circle" style="width: 140px; height: 140px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAACdklEQVR4nO3YMW7iQBiA0dz/KC5duaKhoeQAPoOv4K0GJSyr7CeRTcy+4hUwoIn4Pw8mb9u27fC33r77D+BYBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIheYlglmXZp2l6uHa9Xvdpmvbz+Xx7bl3XfZqmm3Vdf/R+P8nhg3k/iEfr8zz/NsB5nvfT6XQb/jzPP3a/n+awwby/aseQ7l9zPp9vrxkDHCfA5XLZt23bL5fLPk3Tfr1eb2tjuKfT6bb2Fft992f43wUzrtRHXxFjwGOIY4D3AxuPx0BHJON9I56v2u9oDhvMe48GuCzLvizLh0E+GuD9CbBtn3/tPHu/I3nJYMaQ1nX9dICPrvhxyozT5av3O5KXDGY8vrcsy6f3FGN9eHSv8cz9juYlg3nv/orftu3D6XH/q2Xc0I73PfpF88z9jua/DOZP/xcZN6zjNLi/gX32fkf0EsHw7wiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCS/AKycQ7DmKYK8AAAAAElFTkSuQmCC">
+          <h2>Heading</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          <p><a role="button" href="#" class="btn btn-default">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img alt="140x140" data-src="holder.js/140x140" class="img-circle" style="width: 140px; height: 140px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAACdklEQVR4nO3YMW7iQBiA0dz/KC5duaKhoeQAPoOv4K0GJSyr7CeRTcy+4hUwoIn4Pw8mb9u27fC33r77D+BYBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIheYlglmXZp2l6uHa9Xvdpmvbz+Xx7bl3XfZqmm3Vdf/R+P8nhg3k/iEfr8zz/NsB5nvfT6XQb/jzPP3a/n+awwby/aseQ7l9zPp9vrxkDHCfA5XLZt23bL5fLPk3Tfr1eb2tjuKfT6bb2Fft992f43wUzrtRHXxFjwGOIY4D3AxuPx0BHJON9I56v2u9oDhvMe48GuCzLvizLh0E+GuD9CbBtn3/tPHu/I3nJYMaQ1nX9dICPrvhxyozT5av3O5KXDGY8vrcsy6f3FGN9eHSv8cz9juYlg3nv/orftu3D6XH/q2Xc0I73PfpF88z9jua/DOZP/xcZN6zjNLi/gX32fkf0EsHw7wiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCSCIREMiWBIBEMiGBLBkAiGRDAkgiERDIlgSARDIhgSwZAIhkQwJIIhEQyJYEgEQyIYEsGQCIZEMCS/AKycQ7DmKYK8AAAAAElFTkSuQmCC">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a role="button" href="#" class="btn btn-default">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <script src="{% static "css/bootstrap.min.css" %}"></script>
+    <script src="{% static "js/holder.js" %}"></script>
+  
+
+</body></html>
