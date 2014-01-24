@@ -7,184 +7,104 @@
     <meta name="description" content="Jiz">
     <meta name="author" content="felix23ma@gmail.com">
     {% load staticfiles %}
-    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>Jiz - 淘宝记账</title>
 
     <!-- Bootstrap core CSS -->
+    <!-- <link href="../../dist/css/bootstrap.css" rel="stylesheet"> -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/sticky-footer-navbar.css" %}" rel="stylesheet">
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+
     <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="{% static "css/carousel.css" %}" rel="stylesheet">
-    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
   </head>
-<!-- NAVBAR
-================================================== -->
+
   <body>
-    <div class="navbar-wrapper">  <!-- defined in carousel.css -->
-      <div class="container">
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="{% url "jizhang:home" %}">主页</a>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>    <!-- new added -->
+              <span class="icon-bar"></span>    <!-- new added -->
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
                   <li><a href="{% url "jizhang:home" %}">主页</a></li>
                   <li><a href="{% url "jizhang:OrdersHome" %}">订单</a></li>
                   <li><a href="{% url "jizhang:ProductsHome" %}">产品</a></li>
                   <li><a href="{% url "jizhang:CustomersHome" %}">客户</a></li>
                   <li><a href="{% url "jizhang:VendorsHome" %}">供应商</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div> 
-
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-            <!--<img data-src="{% static "js/holder.js" %}/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">-->
-            <img src="{% static "img/chiqingsi1.jpg" %}" alt="chiqingsi1">
-          <div class="container">
-            <div class="carousel-caption">
-            <!--
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            -->
-            </div>
-          </div>
-        </div>
-        <div class="item">
-            <img src="{% static "img/chiqingsi2.jpg" %}" alt="chiqingsi2">
-          <div class="container">
-            <div class="carousel-caption">
-            <!--
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            -->
-            </div>
-          </div>
-        </div>
-        <div class="item">
-            <img src="{% static "img/chiqingsi3.jpg" %}" alt="chiqingsi3">
-          <div class="container">
-            <div class="carousel-caption">
-            <!--
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            -->
-            </div>
-          </div>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
 
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <h1>Sticky footer with fixed navbar</h1>
+        </div>
+        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
+        <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+      </div>
+    </div>
 
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-3">
-            <a href="{% url 'jizhang:OrdersHome' %}">
-                <img class="img-circle" src="{% static "img/fadai1_small.jpg" %}" alt="Generic placeholder image"></a>
-            <h3 class="text-center"><a href="{% url 'jizhang:OrdersHome' %}">订单</a></h3>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-            <a href="{% url 'jizhang:ProductsHome' %}">
-                <img class="img-circle" src="{% static "img/fadai3_small.jpg" %}"  alt="Generic placeholder image"></a>
-            <h3 class="text-center"><a href="{% url 'jizhang:ProductsHome' %}">产品</a></h3>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-            <a href="{% url 'jizhang:CustomersHome' %}">
-                <img class="img-circle" src="{% static "img/bu1_small.jpg" %}"  alt="Generic placeholder image"></a>
-            <h3 class="text-center"><a href="{% url 'jizhang:CustomersHome' %}">客户</a></h3>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-3 -->
-        <div class="col-lg-3">
-            <a href="{% url 'jizhang:ProductsHome' %}">
-                <img class="img-circle" src="{% static "img/bu3_small.jpg" %}"  alt="Generic placeholder image"></a>
-            <h3 class="text-center"><a href="{% url 'jizhang:VendorsHome' %}">供应商</a></h3>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-3 -->
-      </div><!-- /.row -->
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        <i class="icon-envelope"></i> Email: <a href="mailto:dave@davegandy.com">Dave Gandy</a>
-      </footer>
-
-    </div><!-- /.container -->
-
+    <div id="footer">
+      <div class="container">
+        <p class="pull-right text-muted"><a href="#">Back to top</a></p>
+        <p class="text-muted">
+        <a href="mailto:felix23ma@gmail.com"><i class="fa fa-envelope-o fa-lg"></i></a>
+        <a href="http://weibo.com/u/2215539845" target="_blank"> <i class="fa fa-weibo fa-lg"></i></a>
+        </p>
+        <!--
+        <ul>
+          <li><i class="fa fa-envelope-o">: </i><a href="mailto:felix23ma@gmail.com">felixma</a></li>
+          <li><i class="fa fa-weibo"></i>: <a href="http://weibo.com/u/2215539845" target="_blank">@七里山塘边</a></li>
+        </ul>
+        -->
+      <div class="container">
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/holder.js" %}"></script>
   </body>
 </html>
 
