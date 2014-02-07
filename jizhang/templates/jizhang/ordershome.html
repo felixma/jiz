@@ -1,4 +1,8 @@
-<h2>欢迎来到订单主页!</h2>
+{% extends 'base.html' %}
+
+{% block greeting %}欢迎来到订单主页!{% endblock %}
+
+{% block page %}
 
 <h4>最近5个订单:</h4>
 <table border="1">
@@ -46,3 +50,4 @@
 <form action="SearchOrderByProduct">
 	<input type="button" value="Search orders by product">
 </form>
+{% endblock page %}

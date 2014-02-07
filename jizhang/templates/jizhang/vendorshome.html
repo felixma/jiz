@@ -1,4 +1,8 @@
-<h2>欢迎来到生产商主页!</h2>
+{% extends 'base.html' %}
+
+{% block greeting %}欢迎来到供应商主页!{% endblock %}
+
+{% block page %}
 
 <form action="{% url 'jizhang:VendorDetails' %}" method="get">
     生产商ID: <input type="text" name="vend_id">
@@ -9,3 +13,4 @@
 	生产商名称: <input type="text" name="vend_name">
 	<input type="submit" value="搜索">
 </form>
+{% endblock page %}
