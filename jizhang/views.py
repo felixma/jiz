@@ -38,11 +38,6 @@ def CustomerDetails(request):
     elif key4 is not None:
         cust = get_list_or_404(Customers, cust_baiduid__regex = key4)
     return render(request, "jizhang/customer.html", {'cust': cust})
-	#return render(request, "jizhang/customer.html", {'cust': cust})
-#    cust = get_object_or_404(Customers, pk = request.GET['customer_id'])
-#	cust = get_object_or_404(Customers, pk)
-#    return render(request, "jizhang/customer.html", {'cust': cust})
-
 
 def ProductsHome(request):
     return render(request, 'jizhang/productshome.html')

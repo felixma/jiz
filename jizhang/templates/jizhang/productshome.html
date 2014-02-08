@@ -3,28 +3,37 @@
 {% block greeting %}欢迎来到产品主页!{% endblock %}
 
 {% block page %}
-<form class="form-horizontal" role="form" actimn="{% url 'jizhang:ProductDetails' %}" method="get">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:ProductDetails' %}" method="get">
   <div class="form-group">
-    <label for="inputProdID" class="col-sm-2 control-label">产品ID:</label>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" name="prod_id" placeholder="ID">
+    <label for="inputProdID" class="col-sm-2 control-label mylabel">产品ID:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="prod_id" placeholder="如: 1">
     </div>
-    <input type="submit" class="col-sm-1 form-control" value="搜索">
-    {#<button type="submit" class="btn btn-default">搜索</button> #}
+    <button type="submit" class="btn btn-default">搜索</button>
   </div>
 </form>
 
-<form action="{% url 'jizhang:ProductDetails' %}" method="get">
-    产品名称: <input type="text" name="prod_name">
-    <input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:ProductDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputProdName" class="col-sm-2 control-label mylabel">产品名称:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="prod_name" placeholder="如: fa dai">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:ProductDetails' %}" method="get">
-    生产商名称: <input type="text" name="vend_name">
-    <input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:ProductDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputVendName" class="col-sm-2 control-label mylabel">生产商名称:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="vend_name" placeholder="如: Self">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:ProductDetails' %}" method="get">
-    <input type="submit" name="AllProducts" value = "所有产品" class="button"></input>
+<form class="form" action="{% url 'jizhang:ProductDetails' %}" method="get">
+    <button type="submit" name="AllProducts" class="btn btn-default">所有产品</button>
 </form>
 {% endblock page %}

@@ -22,7 +22,7 @@ body {
   height: 60px;
   background-color: #EBEBEB;
 }
-a {
+#footer a {
   color: #767676;
 }
 
@@ -47,3 +47,11 @@ code {
   font-size: 80%;
 }
 
+.form-group .mylabel {
+  text-align: left;
+  width: 110px;
+}
+
+table {
+  table-layout: fixed;
+}

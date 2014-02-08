@@ -4,50 +4,60 @@
 
 {% block page %}
 
-<h4>最近5个订单:</h4>
-<table border="1">
-	<tr>
+<p>最近5个订单:</p>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered table-hover">
+	  <tr class="success">
 		<th>订单ID</th>
 		<th>下单日期</th>
 		<th>状态</th>
 		<th>客户</th>
 		<th>产品</th>
-	</tr>
-    {% for order in orders %}
-    <tr>
-	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:OrderDetails'%}?order_id={{ order.order_id }}>{{ order.order_id }}</td>
-	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_date }}</td>
-	<td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_status }}</td>
-	<td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:CustomerDetails'%}?cust_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
-	{% for item in order.orderitems_set.all %}
-	<td><a href={% url "jizhang:ProductDetails"%}?prod_id={{item.prod_id.prod_id}}>{{ item.prod_id.prod_name }}</td>
-	</tr>
-	<tr>
-	{% endfor %}
-    </tr>
-    {% endfor %}
-</table>
+	  </tr>
+      {% for order in orders %}
+      <tr>
+	  <td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:OrderDetails'%}?order_id={{ order.order_id }}>{{ order.order_id }}</td>
+	  <td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_date }}</td>
+	  <td rowspan={{ order.orderitems_set.all.count }}>{{ order.order_status }}</td>
+	  <td rowspan={{ order.orderitems_set.all.count }}><a href={% url 'jizhang:CustomerDetails'%}?cust_id={{ order.cust_id.cust_id }}>{{ order.cust_id.cust_name }}</td>
+	  {% for item in order.orderitems_set.all %}
+	  <td><a href={% url "jizhang:ProductDetails"%}?prod_id={{item.prod_id.prod_id}}>{{ item.prod_id.prod_name }}</td>
+	  </tr>
+	  {% endfor %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
 
-<br>
-<form action="{% url 'jizhang:OrderDetails' %}" method="get">
-	订单ID: <input type="text" name="order_id">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:OrderDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputOrderID" class="col-sm-2 control-label mylabel">订单ID:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="order_id" placeholder="如: 1">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-
-<form action="{% url 'jizhang:OrderDetails' %}" method="get">
-    <input type="submit" name="OrdersInWeek" value="本周订单" class="button"></input>
+<form class="form-horizontal" role="form" action="{% url 'jizhang:OrderDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputProdID" class="col-sm-2 control-label mylabel">产品名称:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="prod_name" placeholder="如: fa dai">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:OrderDetails' %}" method="get">
-    <input type="submit" name="OrdersInMonth" value="本月订单" class="button"></input>
+<form class="form" action="{% url 'jizhang:OrderDetails' %}" method="get">
+<form class="form" action="{% url 'jizhang:OrderDetails' %}" method="get">
+    <button type="submit" name="OrdersInWeek" class="btn btn-default">本周订单</button>
+    <button type="submit" name="OrdersInMonth" class="btn btn-default">本月订单</button>
 </form>
 
 <form action="SearchOrderByTime">
 	<input type="button" value="Search orders by time">
 </form>
 
-<form action="SearchOrderByProduct">
-	<input type="button" value="Search orders by product">
-</form>
 {% endblock page %}

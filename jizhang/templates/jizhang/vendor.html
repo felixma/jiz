@@ -1,8 +1,15 @@
+{% extends 'details.html' %}
+
+{% block page %}
+
 {% if vend %}
-	生产商数: {{ vend|length}}
+<h5>生产商数: {{ vend|length}}</h5>
 {% endif %}
-<table border="1"> 
-    <tr>
+
+<div class="row">
+  <div class="col-md-10">
+    <table class="table table-bordered table-hover">
+    <tr class="active">
         <th>生产商ID</th>
         <th>名称</th>
         <th>省份</th>
@@ -22,5 +29,10 @@
         <td> Sorry</td>
     </tr>
     {% endfor %}
+  </table>
+  </div>
+</div>
 
-</table>
+<a href="{% url "jizhang:VendorsHome" %}">返回</a>
+
+{% endblock page %}

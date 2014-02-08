@@ -1,16 +1,31 @@
 {% extends 'base.html' %}
 
-{% block greeting %}欢迎来到供应商主页!{% endblock %}
+{% block greeting %}欢迎来到生产商主页!{% endblock %}
 
 {% block page %}
 
-<form action="{% url 'jizhang:VendorDetails' %}" method="get">
-    生产商ID: <input type="text" name="vend_id">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:VendorDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputVendID" class="col-sm-2 control-label mylabel">生产商ID:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="vend_id" placeholder="如: 1">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:VendorDetails' %}" method="get">
-	生产商名称: <input type="text" name="vend_name">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:VendorDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputVendName" class="col-sm-2 control-label mylabel">生产商名称:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="vend_name" placeholder="如: Self">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
+
+<form class="form" action="{% url 'jizhang:VendorDetails' %}" method="get">
+    <button type="submit" name="AllVendors" class="btn btn-default">所有生产商</button>
+</form>
+
 {% endblock page %}

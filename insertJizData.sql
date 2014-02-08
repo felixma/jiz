@@ -28,6 +28,12 @@ INSERT jizhang_orders VALUES
 (3, '2013/12/31', 111, 1, 'http://taobao.com');
 INSERT jizhang_orders VALUES
 (4, '2013/12/31', 111, 1, 'http://taobao.com');
+INSERT jizhang_orders VALUES
+(5, '2014/02/08', 111, 1, 'http://taobao.com');
+INSERT jizhang_orders VALUES
+(6, '2014/02/12', 111, 1, 'http://taobao.com');
+
+
 
 INSERT jizhang_orderitems VALUES
 (1, 1, 1, 10, 50);
@@ -39,5 +45,10 @@ INSERT jizhang_orderitems VALUES
 (4, 3, 3, 30, 20);
 INSERT jizhang_orderitems VALUES
 (5, 4, 4, 30, 20);
+INSERT jizhang_orderitems VALUES
+(6, 5, 4, 1, 20);
+INSERT jizhang_orderitems VALUES
+(7, 6, 3, 5, 20);
+
 
 

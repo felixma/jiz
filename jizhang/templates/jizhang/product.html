@@ -1,8 +1,15 @@
+{% extends 'details.html' %}
+
+{% block page %}
+
 {% if inventory %}
-	产品总数: {{ inventory|length}}
+<h5>产品总数: {{ inventory|length}}</h5>
 {% endif %}
-<table border="1"> 
-    <tr>
+
+<div class="row">
+  <div class="col-md-10">
+     <table class="table table-bordered table-hover"> 
+       <tr class="active">
         <th>产品ID</th>
         <th>姓名</th>
         <th>生产商</th>
@@ -12,26 +19,26 @@
         <th>库存</th>
         <th>批次</th>
         <th>描述</th>
-    </tr>
-    {% for prod,inv in inventory %}
-    <tr>
+       </tr>
+       {% for prod,inv in inventory %}
+       <tr>
         <td>{{ prod.prod_id }}</td>
         <td>{{ prod.prod_name }}</td>
-	<td><a href={% url 'jizhang:VendorDetails' %}?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_name }}</a></td>
+	   <td><a href={% url 'jizhang:VendorDetails' %}?vend_id={{ prod.vend_id.vend_id }}>{{ prod.vend_id.vend_name }}</a></td>
         <td>{{ prod.prod_price_in }}</td>
         <td>{{ prod.prod_price_out }}</td>
         <td>{{ prod.prod_total_amount }}</td>
-	<td>{{ inv }}</td>
+	   <td>{{ inv }}</td>
         <td>{{ prod.prod_batch_id }}</td>
         <td>{{ prod.prod_desc }}</td>
-    {% empty %}
+      {% empty %}
         <td> Sorry</td>
-    </tr>
-    {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
 
-</table>
+<a href="{% url "jizhang:ProductsHome" %}">返回</a>
 
-<br>
-<a href={% url 'jizhang:ProductsHome' %}>产品主页</a>
-<br>
-<a href={% url 'jizhang:home' %}>Jiz主页</a>
+{% endblock page %}

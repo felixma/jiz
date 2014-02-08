@@ -1,14 +1,21 @@
+{% extends 'details.html' %}
+
+{% block page %}
+
 {% if cust %}
-	客户数: {{ cust|length}}
+<h5>客户数: {{ cust|length}}</h5>
 {% endif %}
-<table border="1"> 
-    <tr>
+
+<div class="row">
+  <div class="col-md-10">
+    <table class="table table-bordered table-hover">
+    <tr class="active">
         <th>客户ID</th>
         <th>姓名</th>
-        <th>地址</th>
         <th>手机</th>
         <th>淘宝ID</th>
         <th>淘宝ID</th>
+        <th>地址</th>
     </tr>
 	{% comment %}
 		cust is already a list, so cannot use below
@@ -18,13 +25,18 @@
     <tr>
         <td>{{ c.cust_id }}</td>
         <td>{{ c.cust_name }}</td>
-	<td>{{ c.cust_country }} {{ c.cust_state }} {{ c.cust_city }} {{ c.cust_address }}</td>
         <td>{{ c.cust_mobile }}</td>
         <td>{{ c.cust_taobaoid }}</td>
         <td>{{ c.cust_baiduid }}</td>
+	    <td>{{ c.cust_country }} {{ c.cust_state }} {{ c.cust_city }} {{ c.cust_address }}</td>
     {% empty %}
         <td> Sorry</td>
     </tr>
     {% endfor %}
+  </table>
+  </div>
+</div>
 
-</table>
+<a href="{% url "jizhang:CustomersHome" %}">返回</a>
+
+{% endblock page %}

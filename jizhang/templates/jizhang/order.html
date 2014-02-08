@@ -1,8 +1,15 @@
+{% extends 'details.html' %}
+
+{% block page %}
+
 {% if OrdersWithTotalPrice %}
-	订单数: {{ OrdersWwithTotalPrice|length}}
+<h5>订单数: {{ OrdersWithTotalPrice|length}}</h5>
 {% endif %}
-<table border="1"> 
-    <tr>
+
+<div class="row">
+  <div class="col-md-10">
+    <table class="table table-bordered table-hover">
+      <tr class="active">
         <th>订单ID</th>
         <th>下单日期</th>
         <th>状态</th>
@@ -30,10 +37,10 @@
 	{% endfor %}
     </tr>
     {% endfor %}
+  </table>
+ </div>
+</div>
 
-</table>
+<a href="{% url "jizhang:OrdersHome" %}">返回</a>
 
-<br>
-<a href={% url 'jizhang:OrdersHome' %}>订单主页</a>
-<br>
-<a href={% url 'jizhang:home' %}>Jiz主页</a>
+{% endblock page %}

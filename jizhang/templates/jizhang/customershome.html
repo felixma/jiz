@@ -4,23 +4,48 @@
 
 {% block page %}
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-    客户ID: <input type="text" name="cust_id">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:CustomerDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputCustID" class="col-sm-2 control-label mylabel">客户ID:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="cust_id" placeholder="如: 111">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	客户Name: <input type="text" name="cust_name">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:CustomerDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputCustName" class="col-sm-2 control-label mylabel">客户姓名:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="cust_name" placeholder="如: maqi">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	淘宝ID: <input type="text" name="taobaoid">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:CustomerDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputTaobaoID" class="col-sm-2 control-label mylabel">淘宝ID:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="taobaoid" placeholder="如: taobao_maqi">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
 
-<form action="{% url 'jizhang:CustomerDetails' %}" method="get">
-	百度ID: <input type="text" name="baiduid">
-	<input type="submit" value="搜索">
+<form class="form-horizontal" role="form" action="{% url 'jizhang:CustomerDetails' %}" method="get">
+  <div class="form-group">
+    <label for="inputBaiduID" class="col-sm-2 control-label mylabel">百度ID:</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" name="baiduid" placeholder="如: baidu_maqi">
+    </div>
+    <button type="submit" class="btn btn-default">搜索</button>
+  </div>
 </form>
+
+<form class="form" action="{% url 'jizhang:CustomerDetails' %}" method="get">
+    <button type="submit" name="AllCustomers" class="btn btn-default">所有客户</button>
+</form>
+
 {% endblock page %}
